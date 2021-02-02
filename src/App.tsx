@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
-function App() {
+// interface MarsData {
+//   test: string
+// }
+
+const App: React.FC = () => {
+
+  const [marsData, setMarsData] = useState<any | null>(null);
+
+  const getMarsData = async ()  => {
+    const marsApiResponse = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0');
+    const response = await marsApiResponse.json();
+    setMarsData(response)
+  }
+
+  useEffect(() => {
+    getMarsData();
+  },[]);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <pre>{JSON.stringify(marsData)}</pre>
     </div>
   );
 }
