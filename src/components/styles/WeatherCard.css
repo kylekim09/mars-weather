@@ -1,0 +1,9 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(67, 61, 61, 0.2), 0 6px 20px 0 rgba(173, 167, 167, 0.19);
+  border-radius: 15px;
+  background-color:#5e636e;
+  max-height: 600px;
+  padding:5px;
+  overflow-y:auto;
+  z-index:3;
+}

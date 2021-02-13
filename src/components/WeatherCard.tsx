@@ -1,13 +1,14 @@
-interface WeatherProps {
-    marsWeather: string;
-}
+import { MarsData }from '../utils/interfaces';
+import './styles/WeatherCard.css';
+import React from 'react';
 
-const WeatherCard: React.FC<WeatherProps> = ({}) => {
+
+const WeatherCard: React.FC = () => {
 
     return (
-        <div>
-            
-        </div>
+        <section className = "card">
+            <p>testing 123 </p>
+       </section>
     )
 }
 
