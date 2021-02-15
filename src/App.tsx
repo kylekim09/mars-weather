@@ -10,9 +10,11 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <div className="flex"> 
       { 
         MarsDataList && MarsDataList.map((iterator:MarsData) => <WeatherCard key={iterator.sol} MarsData={iterator}> </WeatherCard>) 
       }
+      </div>
     </div>
   );
 }
