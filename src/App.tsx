@@ -6,12 +6,12 @@ import './App.css';
 
 const App: React.FC = () => {
 
-  const [MarsData] = useMarsAPI();
+  const [MarsDataList] = useMarsAPI();
 
   return (
     <div className="App">
       { 
-        MarsData && MarsData.map((iterator:any) => <WeatherCard key={iterator.sol} ></WeatherCard>) 
+        MarsDataList && MarsDataList.map((iterator:MarsData) => <WeatherCard key={iterator.sol} MarsData={iterator}> </WeatherCard>) 
       }
     </div>
   );

@@ -6,11 +6,10 @@ import {useState, useEffect} from 'react';
 //Custom Hooks, and API Parser Helper File
 const parseData = (request:any): MarsDataList => {
     const parsedData : MarsDataList = request.sol_keys.map((sol_key: number) => {
-        return { [sol_key]: {
+        return {
             ...request[sol_key],
             sol: sol_key
         }
-    }
     });
     return parsedData;
 }
