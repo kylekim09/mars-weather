@@ -1,0 +1,17 @@
+
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.content{
+  background-color:#26272b;
+  color:white;
+  width:70%;
+  height:500px;
+  opacity: 0.7;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(67, 61, 61, 0.2), 0 6px 20px 0 rgba(173, 167, 167, 0.19);
+}
+

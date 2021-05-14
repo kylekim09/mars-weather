@@ -1,13 +1,14 @@
 
 import { MarsDataList} from './interfaces';
 import {useState, useEffect} from 'react';
+import { parse } from 'path';
 
 
 //Custom Hooks, and API Parser Helper File
 const parseData = (request:any): MarsDataList => {
-    const parsedData : MarsDataList = request.sol_keys.map((sol_key: number) => {
+    const parsedData : MarsDataList = request.validity_checks.sols_checked.map((sol_key: number) => {
         return {
-            ...request[sol_key],
+            ...request.validity_checks[sol_key],
             sol: sol_key
         }
     });
@@ -15,11 +16,11 @@ const parseData = (request:any): MarsDataList => {
 }
 
 const getMarsData = async (): Promise <MarsDataList>=> {
-    const marsApiResponse: Response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0');
+    const marsApiResponse: Response = await fetch('https://api.nasa.gov/insight_weather/?api_key=uM6RRqJC5jPTbDSGuTzxsE449DfHjnOlctL0jtfP&feedtype=json&ver=1.0');
     const response = await marsApiResponse.json();
-    console.log(response);
+    console.log(response, 'here');
     const parsedData:MarsDataList = parseData(response);
-    console.log(parsedData);
+    console.log(parsedData)
     return parsedData;
 }
 
